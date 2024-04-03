@@ -13,26 +13,72 @@
         </header>
 		<main class="container">
             <div id="conversa">
-                <div id="atendente">
+                <div class="atendente">
                     <p class="nome_atendente">Atendente diz:</p>
                     <p class="texto_atendente">TextoTextoTextoTexto</p>
                     <p class="nome_atendente">Atendente diz:</p>
                     <p class="texto_atendente">TextoTextoTextoTextoTexto</p>
                 </div>
         
-                <div id="usuario">
+                <div class="usuario">
                     <p class="nome_usuario">Você diz:</p>
                     <p class="texto_usuario">TextoTextoTexto</p>
                     <p class="nome_usuario">Você diz:</p>
                     <p class="texto_usuario">TextoTexto</p>
                 </div>
+
+                <div class="atendente">
+                    <p class="nome_atendente">Atendente diz:</p>
+                    <p class="texto_atendente">TextoTextoTextoTexto</p>
+                </div>
+
+                <div class="usuario">
+                    <p class="nome_usuario">Você diz:</p>
+                    <p class="texto_usuario">TextoTextoTexto</p>
+                </div>
+
             </div>
 		</main>
         <div>
 			<form class="container">
               <textarea required placeholder="Digite sua mensagem..."></textarea>
-              <button>Enviar</button>
+              <button type="submit">Enviar</button>
             </form>
         </div>
+        <script>
+            const getMensagem = document.querySelector('textarea');
+            const getButton = document.querySelector('button');
+            
+
+
+            function getText() {
+                
+                getButton.addEventListener('click', function (event){
+                    event.preventDefault();
+                    const novaMsg = document.createElement('p');
+                    const novaDiv = document.createElement('div');
+                    const novoNome = document.createElement('p');
+
+                    novaDiv.classList.add("usuario");
+                    novaMsg.classList.add("texto_usuario");
+                    novoNome.classList.add("nome_usuario")
+                    
+                    novaMsg.innerHTML = getMensagem.value;
+                    novoNome.innerHTML = "Você diz:";
+                    
+
+                    const conversaId = document.querySelector("#conversa");
+
+                    conversaId.appendChild(novaDiv);
+                    novaDiv.appendChild(novoNome);
+                    novaDiv.appendChild(novaMsg);
+                    
+                    getMensagem.value = '';
+                })
+            }
+
+    
+           getText();
+        </script>
     </body>
 </html>
