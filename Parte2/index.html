@@ -55,13 +55,14 @@
                 
                 getButton.addEventListener('click', function (event){
                     event.preventDefault();
+                    if(getMensagem.value !== ``){
                     const novaMsg = document.createElement('p');
                     const novaDiv = document.createElement('div');
                     const novoNome = document.createElement('p');
 
                     novaDiv.classList.add("usuario");
                     novaMsg.classList.add("texto_usuario");
-                    novoNome.classList.add("nome_usuario")
+                    novoNome.classList.add("nome_usuario");
                     
                     novaMsg.innerHTML = getMensagem.value;
                     novoNome.innerHTML = "Você diz:";
@@ -73,7 +74,7 @@
                     novaDiv.appendChild(novoNome);
                     novaDiv.appendChild(novaMsg);
                     
-                    getMensagem.value = '';
+                    getMensagem.value = '';}
                 })
             }
 
